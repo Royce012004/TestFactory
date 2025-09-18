@@ -1,3 +1,4 @@
+//task 1
 abstract class Laptop {
     public abstract int getRAM();
     public abstract int getSSD();
@@ -7,17 +8,18 @@ abstract class Laptop {
         return "RAM=" + this.getRAM() + "GB, SSD=" + this.getSSD() + ", CPU=" + this.getCPU();
     }
 }
+//task 2
 class Minimum extends Laptop {
     private int ram;
     private int ssd;
     private String cpu;
-
+    //task 3
     public Minimum(int ram, int ssd, String cpu) {
         this.ram = ram;
         this.ssd = ssd;
         this.cpu = cpu;
     }
-
+    //task 4
     public int getRAM() {
         return this.ram;
     }
@@ -30,6 +32,7 @@ class Minimum extends Laptop {
         return this.cpu;
     }
 }
+//task 5
 class Recommended extends Laptop {
     private int ram;
     private int ssd;
@@ -53,24 +56,23 @@ class Recommended extends Laptop {
         return this.cpu;
     }
 }
+//task 6
 class LaptopFactory {
     public static Laptop getSpecs(String type, int ram, int ssd, String cpu) {
         if ("min".equalsIgnoreCase(type))
             return new Minimum(ram, ssd, cpu);
         else if ("reco".equalsIgnoreCase(type))
             return new Recommended(ram, ssd, cpu);
-
         return null;
     }
 }
+//task 7
 public class TestFactory {
     public static void main(String[] args) {
         Laptop min = LaptopFactory.getSpecs("min", 8, 256, "i5-12450Hz");
         Laptop reco = LaptopFactory.getSpecs("reco", 16, 512, "i7-12700Hz");
-
         System.out.println("Minimum Specs:");
         System.out.println(min);
-
         System.out.println("\nRecommended Specs:");
         System.out.println(reco);
     }
